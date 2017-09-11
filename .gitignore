@@ -10,4 +10,5 @@
 *.sig
 
 pkg/
-src/
+scripts/
+node_modules/
