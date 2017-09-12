@@ -1,26 +1,30 @@
 // src/app.js
 import React from "react";
 import ReactDOM from "react-dom";
+import Title from "./title";
 
-var WordCountBox = React.createClass({
-	getInitialState: function() {
-		return {text: ""};
-	},
-	handleTextChange: function(e) {
+class WordCountBox extends React.Component {
+	constructor(props, context, updater) {
+		super(props, context, updater);
+		this.state = {text: ""};
+		// ???
+		this.handleTextChange = this.handleTextChange.bind(this);
+	}
+	handleTextChange(e) {
 		this.setState({text: e.target.value});
-	},
-	render: function() {
+	}
+	render() {
 		return (
 			<div className="wordCountBox">
-				<h1>Hello, React!</h1>
+				<Title />
 				<textarea rows="8" cols="0" placeholder="Type something..." autoFocus="true" onChange={this.handleTextChange}>
 					{this.state.text}
 				</textarea>
 				<p>Count: {this.state.text.length}</p>
 			</div>
-		);
+		)
 	}
-});
+}
 
 ReactDOM.render(
 	<WordCountBox />,
